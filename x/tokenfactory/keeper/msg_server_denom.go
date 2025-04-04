@@ -30,7 +30,7 @@ func (k msgServer) CreateDenom(goCtx context.Context, msg *types.MsgCreateDenom)
 		Precision:          msg.Precision,
 		Url:                msg.Url,
 		MaxSupply:          msg.MaxSupply,
-		Supply:             msg.Supply,
+		Supply:             0,
 		CanChangeMaxSupply: msg.CanChangeMaxSupply,
 	}
 
@@ -62,11 +62,8 @@ func (k msgServer) UpdateDenom(goCtx context.Context, msg *types.MsgUpdateDenom)
 		Owner:              msg.Owner,
 		Denom:              msg.Denom,
 		Description:        msg.Description,
-		Ticker:             msg.Ticker,
-		Precision:          msg.Precision,
 		Url:                msg.Url,
 		MaxSupply:          msg.MaxSupply,
-		Supply:             msg.Supply,
 		CanChangeMaxSupply: msg.CanChangeMaxSupply,
 	}
 
