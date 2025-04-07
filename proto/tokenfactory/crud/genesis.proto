@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package tokenfactory.crud;
+
+import "amino/amino.proto";
+import "gogoproto/gogo.proto";
+import "tokenfactory/crud/params.proto";
+import "tokenfactory/crud/post.proto";
+
+option go_package = "tokenfactory/x/crud/types";
+
+// GenesisState defines the crud module's genesis state.
+message GenesisState {
+  
+  // params defines all the parameters of the module.
+           Params params   = 1 [(gogoproto.nullable) = false, (amino.dont_omitempty) = true];
+  repeated Post   postList = 2 [(gogoproto.nullable) = false] ;
+}
+

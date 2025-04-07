@@ -1,0 +1,12 @@
+syntax = "proto3";
+package tokenfactory.crud;
+
+option go_package = "tokenfactory/x/crud/types";
+
+message Post {
+  string index = 1; 
+  string title = 2; 
+  string body = 3; 
+  string creator = 4;
+}
+
