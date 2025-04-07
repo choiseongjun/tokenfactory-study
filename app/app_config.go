@@ -11,6 +11,10 @@ import (
 	_ "tokenfactory/x/crud/module" // import for side-effects
 	crudmoduletypes "tokenfactory/x/crud/types"
 
+	tokentransfermodulev1 "tokenfactory/api/tokenfactory/tokentransfer/module"
+	_ "tokenfactory/x/tokentransfer/module" // import for side-effects
+	tokentransfermoduletypes "tokenfactory/x/tokentransfer/types"
+
 	runtimev1alpha1 "cosmossdk.io/api/cosmos/app/runtime/v1alpha1"
 	appv1alpha1 "cosmossdk.io/api/cosmos/app/v1alpha1"
 	authmodulev1 "cosmossdk.io/api/cosmos/auth/module/v1"
@@ -99,6 +103,7 @@ var (
 		// chain modules
 		tokenfactorymoduletypes.ModuleName,
 		crudmoduletypes.ModuleName,
+		tokentransfermoduletypes.ModuleName,
 		// this line is used by starport scaffolding # stargate/app/initGenesis
 	}
 
@@ -125,6 +130,7 @@ var (
 		// chain modules
 		tokenfactorymoduletypes.ModuleName,
 		crudmoduletypes.ModuleName,
+		tokentransfermoduletypes.ModuleName,
 		// this line is used by starport scaffolding # stargate/app/beginBlockers
 	}
 
@@ -145,6 +151,7 @@ var (
 		// chain modules
 		tokenfactorymoduletypes.ModuleName,
 		crudmoduletypes.ModuleName,
+		tokentransfermoduletypes.ModuleName,
 		// this line is used by starport scaffolding # stargate/app/endBlockers
 	}
 
@@ -166,6 +173,7 @@ var (
 		{Account: ibcfeetypes.ModuleName},
 		{Account: icatypes.ModuleName},
 		{Account: tokenfactorymoduletypes.ModuleName, Permissions: []string{authtypes.Minter, authtypes.Burner, authtypes.Staking}},
+		{Account: tokentransfermoduletypes.ModuleName, Permissions: []string{authtypes.Minter, authtypes.Burner, authtypes.Staking}},
 		// this line is used by starport scaffolding # stargate/app/maccPerms
 	}
 
@@ -308,6 +316,10 @@ var (
 			{
 				Name:   crudmoduletypes.ModuleName,
 				Config: appconfig.WrapAny(&crudmodulev1.Module{}),
+			},
+			{
+				Name:   tokentransfermoduletypes.ModuleName,
+				Config: appconfig.WrapAny(&tokentransfermodulev1.Module{}),
 			},
 			// this line is used by starport scaffolding # stargate/app/moduleConfig
 		},

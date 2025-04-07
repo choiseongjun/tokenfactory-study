@@ -78,6 +78,7 @@ import (
 	crudmodulekeeper "tokenfactory/x/crud/keeper"
 	tokenfactorymodulekeeper "tokenfactory/x/tokenfactory/keeper"
 
+	tokentransfermodulekeeper "tokenfactory/x/tokentransfer/keeper"
 	// this line is used by starport scaffolding # stargate/app/moduleImport
 
 	"tokenfactory/docs"
@@ -143,8 +144,9 @@ type App struct {
 	ScopedICAHostKeeper       capabilitykeeper.ScopedKeeper
 	ScopedKeepers             map[string]capabilitykeeper.ScopedKeeper
 
-	TokenfactoryKeeper tokenfactorymodulekeeper.Keeper
-	CrudKeeper         crudmodulekeeper.Keeper
+	TokenfactoryKeeper  tokenfactorymodulekeeper.Keeper
+	CrudKeeper          crudmodulekeeper.Keeper
+	TokentransferKeeper tokentransfermodulekeeper.Keeper
 	// this line is used by starport scaffolding # stargate/app/keeperDeclaration
 
 	// simulation manager
@@ -250,6 +252,7 @@ func New(
 		&app.CircuitBreakerKeeper,
 		&app.TokenfactoryKeeper,
 		&app.CrudKeeper,
+		&app.TokentransferKeeper,
 		// this line is used by starport scaffolding # stargate/app/keeperDefinition
 	); err != nil {
 		panic(err)

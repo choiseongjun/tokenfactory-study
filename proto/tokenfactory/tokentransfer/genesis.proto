@@ -1,0 +1,17 @@
+syntax = "proto3";
+package tokenfactory.tokentransfer;
+
+import "amino/amino.proto";
+import "gogoproto/gogo.proto";
+import "tokenfactory/tokentransfer/params.proto";
+
+option go_package = "tokenfactory/x/tokentransfer/types";
+
+// GenesisState defines the tokentransfer module's genesis state.
+message GenesisState {
+  // params defines all the parameters of the module.
+  Params params = 1 [
+    (gogoproto.nullable) = false,
+    (amino.dont_omitempty) = true
+  ];
+}

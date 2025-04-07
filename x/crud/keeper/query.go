@@ -2,10 +2,11 @@ package keeper
 
 import (
 	"context"
+	"tokenfactory/x/crud/types"
+
 	"cosmossdk.io/store/prefix"
 	"github.com/cosmos/cosmos-sdk/runtime"
 	"github.com/cosmos/cosmos-sdk/types/query"
-	"tokenfactory/x/crud/types"
 )
 
 var _ types.QueryServer = Keeper{}
